@@ -1,0 +1,618 @@
+
+/* ========================================
+   SITE DA SOFIA — COQUETTE ROMÂNTICO 🎀
+======================================== */
+
+:root {
+    --rosa-claro: #fff0f5;
+    --rosa-bebe: #fbd5e2;
+    --rosa-medio: #e89ab5;
+    --rosa-escuro: #a94d70;
+    --vinho: #71374f;
+    --creme: #fffaf5;
+    --branco: #ffffff;
+    --texto: #654653;
+    --sombra: 0 10px 30px rgba(185, 37, 94, 0.12);
+    --borda: rgba(172, 59, 103, 0.923);
+}
+
+/* Base */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    color: var(--texto);
+    background:
+        radial-gradient(ellipse at top left, #ffe6ef, transparent 42%),
+        var(--creme);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+::selection {
+    color: var(--vinho);
+    background: var(--rosa-bebe);
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Menu */
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 250, 245, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--borda);
+    box-shadow: 0 4px 18px rgba(169, 77, 112, 0.06);
+}
+
+.topo nav {
+    max-width: 1150px;
+    min-height: 72px;
+    margin: auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topo ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.topo a {
+    position: relative;
+    display: inline-block;
+    padding: 6px 0;
+    color: var(--vinho);
+    text-decoration: none;
+    font-size: 0.98rem;
+    transition: color 0.25s ease;
+}
+
+.topo a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--rosa-medio);
+    transition: width 0.3s ease;
+}
+
+.topo a:hover {
+    color: var(--rosa-escuro);
+}
+
+.topo a:hover::after,
+.topo a:focus-visible::after {
+    width: 100%;
+}
+
+/* Conteúdo */
+
+main {
+    width: min(1120px, 100% - 40px);
+    margin: auto;
+}
+
+section {
+    padding: 78px 0;
+    scroll-margin-top: 80px;
+}
+
+section h2 {
+    margin: 0 0 18px;
+    text-align: center;
+    color: var(--vinho);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: normal;
+}
+
+section h2::after {
+    content: " ୨୧ ";
+    display: block;
+    margin-top: 3px;
+    color: var(--rosa-medio);
+    font-size: 1.3rem;
+}
+
+section p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Apresentação */
+
+.apresentacao {
+    min-height: 610px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 65px 0 80px;
+}
+
+.perfil-sofia {
+    width: 100%;
+    animation: aparecer 1s ease both;
+}
+
+.sofia {
+    display: block;
+    width: 205px;
+    height: 205px;
+    margin: 0 auto 28px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+    outline: 2px solid var(--rosa-medio);
+    box-shadow: 0 0 0 10px rgba(251, 213, 226, 0.4),
+                0 18px 40px rgba(169, 77, 112, 0.15);
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.apresentacao h1 {
+    max-width: 850px;
+    margin: 0 auto 18px;
+    color: var(--vinho);
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.apresentacao p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    font-size: 1.1rem;
+}
+
+/* Botões */
+
+.botao,
+#form-contato button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 25px;
+    border: 1px solid var(--rosa-medio);
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(135deg, #e9a0b9, #c96e94);
+    box-shadow: 0 8px 20px rgba(201, 110, 148, 0.2);
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.botao:hover,
+#form-contato button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(201, 110, 148, 0.3);
+    filter: saturate(1.1);
+}
+
+.botao:active,
+#form-contato button:active {
+    transform: scale(0.97);
+}
+
+/* Cartões */
+
+.cartoes-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.cartao-info {
+    position: relative;
+    padding: 28px;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--sombra);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.cartao-info::before {
+    content: "♡";
+    position: absolute;
+    top: 5px;
+    right: 17px;
+    color: rgba(232, 154, 181, 0.35);
+    font-size: 2.4rem;
+    transition: transform 0.3s ease;
+}
+
+.cartao-info:hover {
+    transform: translateY(-6px);
+    border-color: var(--rosa-medio);
+    box-shadow: 0 18px 36px rgba(169, 77, 112, 0.15);
+}
+
+.cartao-info:hover::before {
+    transform: rotate(15deg) scale(1.12);
+}
+
+.cartao-info h3 {
+    margin: 0 0 12px;
+    color: var(--rosa-escuro);
+    font-size: 1.35rem;
+}
+
+.cartao-info p {
+    margin-bottom: 0;
+}
+
+/* Mensagens interativas */
+
+.mensagens {
+    text-align: center;
+}
+
+.mensagens-intro {
+    margin-bottom: 30px;
+}
+
+.mensagens-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.balao-fala {
+    min-width: 0;
+    padding: 24px 18px;
+    border: 1px solid var(--borda);
+    border-radius: 25px 25px 25px 8px;
+    color: var(--vinho);
+    background: linear-gradient(145deg, #fff, #fff0f5);
+    box-shadow: var(--sombra);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.balao-fala:hover {
+    transform: translateY(-5px) rotate(-1deg);
+    box-shadow: 0 15px 30px rgba(169, 77, 112, 0.15);
+}
+
+.balao-fala[aria-expanded="true"] {
+    background: #ffe5ef;
+}
+
+.texto-balao {
+    display: block;
+    margin-top: 15px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--rosa-medio);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    animation: aparecer 0.35s ease both;
+}
+
+.texto-balao[hidden] {
+    display: none;
+}
+
+.balao-fala small {
+    display: block;
+    margin-top: 12px;
+    color: var(--rosa-escuro);
+    font-size: 0.78rem;
+}
+
+/* Currículo */
+
+#curriculo,
+#contato {
+    text-align: center;
+}
+
+.aviso-curriculo {
+    color: #967782;
+    font-size: 0.9rem;
+}
+
+/* Balões decorativos do contato */
+
+.baloes-contato {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin: 28px 0;
+}
+
+.balao-decorativo {
+    padding: 14px 23px;
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+    background: white;
+    box-shadow: var(--sombra);
+    animation: flutuar 3.5s ease-in-out infinite;
+}
+
+.balao-direita {
+    background: var(--rosa-claro);
+    animation-delay: -1.5s;
+}
+
+/* Formulário */
+
+#form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: var(--sombra);
+    text-align: left;
+}
+
+#form-contato label {
+    color: var(--vinho);
+    font-weight: bold;
+}
+
+#form-contato input,
+#form-contato textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #efd0dc;
+    border-radius: 13px;
+    outline: none;
+    color: var(--texto);
+    background: #fffafd;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#form-contato input:focus,
+#form-contato textarea:focus {
+    border-color: var(--rosa-medio);
+    box-shadow: 0 0 0 4px rgba(232, 154, 181, 0.16);
+}
+
+#form-contato textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+#form-contato button {
+    align-self: center;
+    margin-top: 8px;
+}
+
+#status-form {
+    margin: 0;
+    text-align: center;
+    color: var(--rosa-escuro);
+}
+
+/* Rodapé */
+
+footer {
+    margin-top: 35px;
+    padding: 28px 20px;
+    border-top: 1px solid var(--borda);
+    background: #fff0f5;
+    text-align: center;
+}
+
+footer p {
+    margin: 0 0 8px;
+}
+
+footer a {
+    color: var(--rosa-escuro);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Laços flutuantes */
+
+.lacos-flutuantes {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.lacos-flutuantes span {
+    position: absolute;
+    bottom: -70px;
+    left: var(--posicao, 10%);
+    opacity: 0.24;
+    font-size: var(--tamanho, 25px);
+    animation: subir var(--duracao, 16s) linear infinite;
+    animation-delay: var(--atraso, 0s);
+}
+
+.lacos-flutuantes span:nth-child(1) {
+    --posicao: 8%;
+    --duracao: 17s;
+    --atraso: -3s;
+}
+
+.lacos-flutuantes span:nth-child(2) {
+    --posicao: 28%;
+    --tamanho: 19px;
+    --duracao: 21s;
+    --atraso: -12s;
+}
+
+.lacos-flutuantes span:nth-child(3) {
+    --posicao: 55%;
+    --tamanho: 30px;
+    --duracao: 19s;
+    --atraso: -7s;
+}
+
+.lacos-flutuantes span:nth-child(4) {
+    --posicao: 77%;
+    --tamanho: 22px;
+    --duracao: 23s;
+    --atraso: -15s;
+}
+
+.lacos-flutuantes span:nth-child(5) {
+    --posicao: 92%;
+    --tamanho: 28px;
+    --duracao: 18s;
+    --atraso: -10s;
+}
+
+/* Animações de entrada */
+
+.revelar {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10%, 80% {
+        opacity: 0.24;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Acessibilidade */
+
+:focus-visible {
+    outline: 3px solid var(--rosa-escuro);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .revelar {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* Um pouquinho mais de rosa 🎀 */
+
+:root {
+    --rosa-medio: #e99ab8;
+    --rosa-escuro: #b9577d;
+    --borda: rgba(237, 137, 175, 0.3);
+}
+
+.botao,
+#form-contato button {
+    background: linear-gradient(135deg, #f197ba, #e880a9);
+}
+
+.cartao-info:hover {
+    border-color: #f48fb9;
+}
+
+.topo {
+    background: rgba(255, 246, 250, 0.94);
+}
